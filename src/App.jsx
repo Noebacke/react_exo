@@ -1,3 +1,4 @@
+import Articles from "./Articles";
 import Footer from "./Footer";
 import Header from "./Header";
 
@@ -6,6 +7,7 @@ function App() {
         <div>
             <Header/>
             <Footer/>
+            <Articles/>
         </div>
     )
 };
