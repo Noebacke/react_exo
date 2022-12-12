@@ -25,22 +25,33 @@ const Articles = ()=>{
             isPublished: true,
         },
     ];
-    const returnOfArray = articles.map((article)=>{
-        if(article.isPublished)
-        return(
-            <div>
-                <h1>{article.title}</h1>
-                <img src={article.image}></img>
-                <div>{article.subtitle}</div>
-                <div>{article.content}</div>
-                <div>{article.date.toString()}</div>
-            </div>
+    // const returnOfArray = articles.map((article)=>{
+    //     if(article.isPublished)
+    //     return(
+    //         <div>
+    //             <h1>{article.title}</h1>
+    //             <img src={article.image}></img>
+    //             <div>{article.subtitle}</div>
+    //             <div>{article.content}</div>
+    //             <div>{article.date.toString()}</div>
+    //         </div>
             
-        )
-    });
+    //     )
+    // });
     return (
         <div>
-            {returnOfArray}
+            {articles.map((article)=>{
+                if(article.isPublished)
+                return(
+                    <div>
+                        <h1>{article.title}</h1>
+                        <img src={article.image}></img>
+                        <div>{article.subtitle}</div>
+                        <div>{article.content}</div>
+                        <div>{article.date.toString()}</div>
+                    </div>
+                )
+            })}
         </div>
     );
 };
