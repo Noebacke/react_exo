@@ -22,7 +22,7 @@ const Articles = ()=>{
             subtitle: "Sous-titre de l'article 3",
             date: new Date("2021-01-01"),
             content: "Contenu de l'article 3",
-            isPublished: true,
+            isPublished: false,
         },
     ];
     // const returnOfArray = articles.map((article)=>{
@@ -41,16 +41,17 @@ const Articles = ()=>{
     return (
         <div>
             {articles.map((article)=>{
-                if(article.isPublished)
-                return(
-                    <div>
-                        <h1>{article.title}</h1>
-                        <img src={article.image}></img>
-                        <div>{article.subtitle}</div>
-                        <div>{article.content}</div>
-                        <div>{article.date.toString()}</div>
-                    </div>
-                )
+                if(article.isPublished){
+                    return(
+                        <div>
+                            <h1>{article.title}</h1>
+                            <img src={article.image}></img>
+                            <div>{article.subtitle}</div>
+                            <div>{article.content}</div>
+                            <div>{article.date.toString()}</div>                                                                                                                                                                                                                                 
+                        </div>
+                    )
+                };
             })}
         </div>
     );
