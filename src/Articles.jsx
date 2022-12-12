@@ -1,4 +1,7 @@
-const Articles = ()=>{
+import ShowArticle from "./ShowArticle";
+
+
+const Articles = (props)=>{
     const articles = [
         {
             title: "Titre de l'article 1",
@@ -7,6 +10,7 @@ const Articles = ()=>{
             date: new Date("2021-01-01"),
             content: "Contenu de l'article 1",
             isPublished: true,
+            id: 15,
         },
         {
             title: "Titre de l'article 2",
@@ -15,6 +19,7 @@ const Articles = ()=>{
             date: new Date("2021-01-01"),
             content: "Contenu de l'article 2",
             isPublished: true,
+            id: 12,
         },
         {
             title: "Titre de l'article 3",
@@ -22,38 +27,21 @@ const Articles = ()=>{
             subtitle: "Sous-titre de l'article 3",
             date: new Date("2021-01-01"),
             content: "Contenu de l'article 3",
-            isPublished: false,
+            isPublished: true,
+            id: 5,
         },
     ];
-    // const returnOfArray = articles.map((article)=>{
-    //     if(article.isPublished)
-    //     return(
-    //         <div>
-    //             <h1>{article.title}</h1>
-    //             <img src={article.image}></img>
-    //             <div>{article.subtitle}</div>
-    //             <div>{article.content}</div>
-    //             <div>{article.date.toString()}</div>
-    //         </div>
-            
-    //     )
-    // });
+    
     return (
-        <div>
+        <section>
             {articles.map((article)=>{
-                if(article.isPublished){
-                    return(
-                        <div>
-                            <h1>{article.title}</h1>
-                            <img src={article.image}></img>
-                            <div>{article.subtitle}</div>
-                            <div>{article.content}</div>
-                            <div>{article.date.toString()}</div>                                                                                                                                                                                                                                 
-                        </div>
-                    )
-                };
+                return(
+                    <ShowArticle currentArticle={article}/>
+                )
             })}
-        </div>
+            
+        </section>
+        
     );
 };
 
