@@ -9,15 +9,21 @@ const RandomCocktail = ()=>{
     const handleClick = async () => {
         const cocktailResponses = await fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php');
         const cocktailRandomData = await cocktailResponses.json()
-        setCocktailRandomdata(cocktailRandomData);
+        const returnCocktail = cocktailRandomData.drinks[0];
+        setCocktailRandomdata(returnCocktail);
+        
     }
-    
+
+
     return(
         <div>
-            <button onClick={handleClick}>Cliquez sur moi pour retourner les boissons</button>
+            <button onClick={handleClick}>Cliquez sur moi pour retourner les noms de boissons</button>
             {cocktailRandomData ? (
                 <div>
-                    <h1>{cocktailRandomData.drinks[0].strDrink }</h1>
+                    <h1>{cocktailRandomData.strDrink }</h1>
+                    <img src={cocktailRandomData.strDrinkThumb}></img>
+                    <div>{cocktailRandomData.strCategory}</div>
+                    <div>{cocktailRandomData.strInstructions}</div>
                 </div>   
             ) : (
                 <div>
