@@ -1,7 +1,14 @@
 import ShowArticle from "./ShowArticle";
+import { useState } from "react";
 
+const Articles = ()=>{
 
-const Articles = (props)=>{
+    const [isButtonClicked, setIsButtonClicked] = useState();
+
+    const registerClick = (e)=>{
+        setIsButtonClicked(true);
+    }
+
     const articles = [
         {
             title: "Titre de l'article 1",
@@ -31,15 +38,19 @@ const Articles = (props)=>{
             id: 5,
         },
     ];
-    
+   
     return (
         <section>
-            {articles.map((article)=>{
-                return(
-                    <ShowArticle currentArticle={article}/>
-                )
-            })}
-            
+            {isButtonClicked ? (articles.map((article)=>{
+                    return(
+                        <section>
+                            <ShowArticle currentArticle={article}/>
+                        </section>
+                        
+                    )
+                })) 
+                :(<button onClick={registerClick}>Cliquez ici pour afficher les articles</button>)  
+            }
         </section>
         
     );
